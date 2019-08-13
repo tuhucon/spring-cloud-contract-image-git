@@ -1,0 +1,20 @@
+description: stub for /v1/objects/match with normal case
+name: match api with normal case
+request:
+  url: /v1/objects/match
+  method: POST
+  body:
+    pids: ["adki46", "adki47", "bhckh500"]
+    values:
+      - type: main
+        path: "/x/y/image1.jpg"
+      - type: thumb_1
+        path: "/x/y/image2.jpg"
+response:
+  status: 200
+  body:
+    pids:
+      - oid: adki46
+        score: 0.8
+      - oid: adki47
+        score: 0.75

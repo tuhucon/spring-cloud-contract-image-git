@@ -59,6 +59,20 @@
             <plugin>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-contract-maven-plugin</artifactId>
+                <configuration>
+                    <contractsRepositoryUrl>git://https://github.com/tuhucon/spring-cloud-contract-git.git</contractsRepositoryUrl>
+                    <!-- We reuse the contract dependency section to set up the path
+        to the folder that contains the contract definitions. In our case the
+        path will be /groupId/artifactId/version/contracts -->
+                    <contractDependency>
+                        <groupId>${project.groupId}</groupId>
+                        <artifactId>${project.artifactId}</artifactId>
+                        <version>${project.version}</version>
+                    </contractDependency>
+
+                    <!-- The contracts mode can't be classpath -->
+                    <contractsMode>REMOTE</contractsMode>
+                </configuration>
                 <version>2.1.2.RELEASE</version>
                 <extensions>true</extensions>
             </plugin>
